@@ -455,6 +455,92 @@ export default function App() {
             </motion.div>
           </section>
 
+          <section id="deployed-apps">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={containerVariants}
+            >
+              <h2 className="section-title">
+                <Globe className="accent-emerald-text" size={32} />
+                TOP 4 deployed apps
+              </h2>
+              <div className="grid-2">
+                {[
+                  {
+                    title: "Anime Clicker : IO",
+                    image: "/animeclicker.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.animeclicker&hl=en_US",
+                    downloads: "5K+"
+                  },
+                  {
+                    title: "Sponge Rush : 3D",
+                    image: "/spongerush3d.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.spongerush3d&hl=en_US",
+                    downloads: "1K+"
+                  },
+                  {
+                    title: "Sponge Rush",
+                    image: "/spongerush.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.spongerush&hl=en_US",
+                    downloads: "1K+"
+                  },
+                  {
+                    title: "Bomber Golfer",
+                    image: "/bombergolfer.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.bombergolfer&hl=en_US",
+                    downloads: "1K+"
+                  }
+                ].map((app, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    variants={itemVariants} 
+                    className="glass-card" 
+                    style={{ padding: '0', overflow: 'hidden', position: 'relative' }}
+                    initial="initial"
+                    whileHover="hover"
+                  >
+                    <a href={app.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
+                      <div style={{ height: '250px', width: '100%' }}>
+                        <SmartImage 
+                          src={app.image} 
+                          alt={app.title} 
+                          style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                        />
+                      </div>
+                      <motion.div 
+                        variants={{
+                          initial: { opacity: 0, y: 10 },
+                          hover: { opacity: 1, y: 0 }
+                        }}
+                        transition={{ duration: 0.3 }}
+                        style={{ 
+                          position: 'absolute', 
+                          bottom: 0, 
+                          left: 0, 
+                          right: 0, 
+                          padding: '2rem 1.5rem 1.5rem', 
+                          background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', 
+                          display: 'flex', 
+                          justifyContent: 'space-between', 
+                          alignItems: 'center',
+                          color: '#fff'
+                        }}
+                      >
+                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{app.title}</h3>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span style={{ fontSize: '0.9rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.2)', padding: '0.2rem 0.5rem', borderRadius: '12px' }}>{app.downloads}</span>
+                          <ExternalLink size={20} color="#38bdf8" />
+                        </div>
+                      </motion.div>
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+
           <section id="expertise">
             <motion.div 
               initial="hidden"
