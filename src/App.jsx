@@ -432,7 +432,7 @@ export default function App() {
                     decoding="async"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=800";
+                      e.target.style.display = 'none'; // Hide if missing
                     }}
                   />
                 </div>
