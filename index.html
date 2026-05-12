@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Badis Khabou | 3D Artist & Game Producer Portfolio</title>
+    <meta name="description" content="Professional portfolio of Badis Khabou, a 3D Artist and Game Producer with 5+ years of experience in high-fidelity character modeling, texturing, and game production." />
+    <meta name="keywords" content="3D Artist, Game Producer, Character Modeling, ZBrush, Maya, Substance Painter, Unity, Game Development, Badis Khabou" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Badis Khabou | 3D Artist & Game Producer Portfolio" />
+    <meta property="og:description" content="Professional portfolio of Badis Khabou, a 3D Artist and Game Producer with 5+ years of experience." />
+    <meta property="og:image" content="/photo.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Badis Khabou | 3D Artist & Game Producer Portfolio" />
+    <meta property="twitter:description" content="Professional portfolio of Badis Khabou, a 3D Artist and Game Producer with 5+ years of experience." />
+    <meta property="twitter:image" content="/photo.jpg" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#030303" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdna.artstation.com">
+    <link rel="preconnect" href="https://cdnb.artstation.com">
+    
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="/photo.jpg" imagesrcset="/photo.jpg">
+    
+    <!-- Inline Critical Styles for FCP -->
+    <style>
+      body { background-color: #030303; margin: 0; }
+      #root { opacity: 0; animation: fadeIn 0.5s ease forwards; }
+      @keyframes fadeIn { to { opacity: 1; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Service Worker for Caching
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.log('SW registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
