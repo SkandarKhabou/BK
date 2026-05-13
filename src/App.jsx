@@ -478,7 +478,7 @@ export default function App() {
             >
               <h2 className="section-title">
                 <Globe className="accent-emerald-text" size={32} />
-                TOP 10 deployed apps
+                TOP 10 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(200+ apps)</span>
               </h2>
               <div className="grid-5">
                 {[
@@ -486,7 +486,7 @@ export default function App() {
                     title: "Swords Makers",
                     image: "/swordsmakers.png",
                     link: "https://play.google.com/store/apps/details?id=com.stolenpad.swordsmakers",
-                    downloads: "1M+"
+                    downloads: "5M+"
                   },
                   {
                     title: "Anime Clicker : IO",
@@ -802,7 +802,7 @@ export default function App() {
                   </div>
                   <div className="language-item">
                     <span className="lang-name">English</span>
-                    <span className="lang-level">IELTS General Training</span>
+                    <span className="lang-level">B2 (IELTS General Training)</span>
                   </div>
                 </div>
               </motion.div>
