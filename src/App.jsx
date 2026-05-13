@@ -22,6 +22,32 @@ import {
 } from 'lucide-react'
 import { projects } from './data'
 
+const ArtStation = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/>
+  </svg>
+)
+
+const LinkedIn = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+)
+
 // Performance Optimized Image Component with Skeleton Loading
 const SmartImage = ({ src, alt, className, loading = "lazy" }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -190,8 +216,11 @@ const ProjectCarousel = ({ onProjectClick }) => {
               alt={project.title} 
               className="carousel-img"
             />
-            <div className="project-card-info">
-              <h3>{project.title}</h3>
+            <div className="project-card-info" style={{ display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ margin: '0 0 0.25rem 0' }}>{project.title}</h3>
+              <div className="accent-blue-text" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, opacity: 0.9 }}>
+                View Gallery <ArrowRight size={14} />
+              </div>
             </div>
           </div>
         ))}
@@ -413,10 +442,10 @@ export default function App() {
                 <motion.div variants={itemVariants} className="action-group">
                   <ContactDropdown />
                   <a href="https://www.linkedin.com/in/badis-khabou" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="LinkedIn">
-                    <LinkIcon size={22} />
+                    <LinkedIn size={22} />
                   </a>
                   <a href="https://www.artstation.com/badiskhabou" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="ArtStation">
-                    <Globe size={22} />
+                    <ArtStation size={22} />
                   </a>
                 </motion.div>
               </div>
@@ -440,21 +469,6 @@ export default function App() {
             </motion.div>
           </section>
 
-          <section id="work">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={containerVariants}
-            >
-              <h2 className="section-title">
-                <Layers className="accent-blue-text" size={32} />
-                Selected Works
-              </h2>
-              <ProjectCarousel onProjectClick={setSelectedProject} />
-            </motion.div>
-          </section>
-
           <section id="deployed-apps">
             <motion.div 
               initial="hidden"
@@ -464,10 +478,16 @@ export default function App() {
             >
               <h2 className="section-title">
                 <Globe className="accent-emerald-text" size={32} />
-                TOP 4 deployed apps
+                TOP 10 deployed apps
               </h2>
-              <div className="grid-2">
+              <div className="grid-5">
                 {[
+                  {
+                    title: "Swords Makers",
+                    image: "/swordsmakers.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.swordsmakers",
+                    downloads: "1M+"
+                  },
                   {
                     title: "Anime Clicker : IO",
                     image: "/animeclicker.png",
@@ -491,18 +511,75 @@ export default function App() {
                     image: "/bombergolfer.png",
                     link: "https://play.google.com/store/apps/details?id=com.stolenpad.bombergolfer&hl=en_US",
                     downloads: "1K+"
+                  },
+                  {
+                    title: "City Builder",
+                    image: "/citybuilder.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.citybuilder",
+                    downloads: "1K+"
+                  },
+                  {
+                    title: "Battle Blacksmith",
+                    image: "/battleblacksmith.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.battleblacksmith",
+                    downloads: "500+"
+                  },
+                  {
+                    title: "Barrel Maker",
+                    image: "/barrelmaker.png",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.barrelmaker",
+                    downloads: "100+"
+                  },
+                  {
+                    title: "Shooter Sorter",
+                    image: "/shootersorter.png",
+                    link: "https://play.google.com/store/apps/details?id=com.Stolenpad.ShooterSorter",
+                    downloads: "100+"
+                  },
+                  {
+                    title: "Footing Girl 3D",
+                    image: "/footinggirl3d.png",
+                    link: "https://play.google.com/store/apps/details?id=com.StolenPad.FootingGirl3D",
+                    downloads: "5+"
                   }
                 ].map((app, idx) => (
                   <motion.div 
                     key={idx} 
                     variants={itemVariants} 
                     className="glass-card" 
-                    style={{ padding: '0', overflow: 'hidden', position: 'relative' }}
+                    style={{ 
+                      padding: '0', 
+                      overflow: 'hidden', 
+                      position: 'relative',
+                      ...(idx === 0 ? { border: '2px solid #fbbf24', boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)' } : {})
+                    }}
                     initial="initial"
                     whileHover="hover"
                   >
                     <a href={app.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
-                      <div style={{ height: '250px', width: '100%' }}>
+                      <div style={{ width: '100%', aspectRatio: '1 / 1', position: 'relative' }}>
+                        {idx === 0 && (
+                          <div style={{
+                            position: 'absolute',
+                            top: '0.75rem',
+                            right: '0.75rem',
+                            background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+                            color: '#000',
+                            fontWeight: '800',
+                            padding: '0.4rem 0.8rem',
+                            borderRadius: '999px',
+                            fontSize: '0.75rem',
+                            zIndex: 10,
+                            boxShadow: '0 4px 12px rgba(251, 191, 36, 0.5)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.3rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.5px'
+                          }}>
+                            <Sparkles size={14} /> Reached Top 5 in US
+                          </div>
+                        )}
                         <SmartImage 
                           src={app.image} 
                           alt={app.title} 
@@ -528,16 +605,41 @@ export default function App() {
                           color: '#fff'
                         }}
                       >
-                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{app.title}</h3>
+                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)', color: idx === 0 ? '#fbbf24' : '#fff' }}>{app.title}</h3>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <span style={{ fontSize: '0.9rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.2)', padding: '0.2rem 0.5rem', borderRadius: '12px' }}>{app.downloads}</span>
-                          <ExternalLink size={20} color="#38bdf8" />
+                          <span style={{ 
+                            fontSize: '0.9rem', 
+                            fontWeight: 'bold', 
+                            background: idx === 0 ? 'rgba(251, 191, 36, 0.2)' : 'rgba(255,255,255,0.2)', 
+                            color: idx === 0 ? '#fbbf24' : '#fff',
+                            padding: '0.2rem 0.5rem', 
+                            borderRadius: '12px',
+                            border: idx === 0 ? '1px solid rgba(251, 191, 36, 0.5)' : 'none'
+                          }}>
+                            {app.downloads}
+                          </span>
+                          <ExternalLink size={20} color={idx === 0 ? "#fbbf24" : "#38bdf8"} />
                         </div>
                       </motion.div>
                     </a>
                   </motion.div>
                 ))}
               </div>
+            </motion.div>
+          </section>
+
+          <section id="work">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={containerVariants}
+            >
+              <h2 className="section-title">
+                <Layers className="accent-blue-text" size={32} />
+                Selected Works
+              </h2>
+              <ProjectCarousel onProjectClick={setSelectedProject} />
             </motion.div>
           </section>
 
@@ -552,13 +654,13 @@ export default function App() {
                 <Palette className="accent-blue-text" size={32} />
                 Core Expertise
               </h2>
-              <div className="grid-3">
+              <div className="grid-2">
                 {[
                   {
-                    title: "3D & Sculpting",
+                    title: "3D Modeling & Sculpting",
                     icon: Layers,
                     colorClass: "accent-blue-text",
-                    skills: ["Maya", "ZBrush", "Marvelous Designer", "Arnold"]
+                    skills: ["Maya", "ZBrush", "Marvelous Designer"]
                   },
                   {
                     title: "Texturing & UVs",
@@ -571,6 +673,12 @@ export default function App() {
                     icon: Cpu,
                     colorClass: "accent-emerald-text",
                     skills: ["Unity", "Optimization", "Material Setup", "Profiling"]
+                  },
+                  {
+                    title: "Rendering",
+                    icon: Sun,
+                    colorClass: "accent-purple-text",
+                    skills: ["Arnold", "Substance Stager", "Marmoset Toolbag"]
                   }
                 ].map((category, idx) => (
                   <motion.div key={idx} variants={itemVariants} className="glass-card skill-card">
@@ -690,11 +798,11 @@ export default function App() {
                   </div>
                   <div className="language-item">
                     <span className="lang-name">French</span>
-                    <span className="lang-level">C1</span>
+                    <span className="lang-level">C1 (TCF Canada)</span>
                   </div>
                   <div className="language-item">
                     <span className="lang-name">English</span>
-                    <span className="lang-level">B2</span>
+                    <span className="lang-level">IELTS General Training</span>
                   </div>
                 </div>
               </motion.div>
