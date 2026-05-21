@@ -478,7 +478,7 @@ export default function App() {
             >
               <h2 className="section-title">
                 <Globe className="accent-emerald-text" size={32} />
-                TOP 10 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(200+ apps)</span>
+                TOP 11 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(200+ apps)</span>
               </h2>
               {/* ── Featured App: Swords Makers (5M+) ── */}
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -632,6 +632,12 @@ export default function App() {
                     image: "/shootersorter.png",
                     link: "https://play.google.com/store/apps/details?id=com.Stolenpad.ShooterSorter",
                     downloads: "100+"
+                  },
+                  {
+                    title: "Footing Girl 3D",
+                    image: "/footinggirl3d.png",
+                    link: "https://play.google.com/store/apps/details?id=com.StolenPad.FootingGirl3D",
+                    downloads: "5+"
                   }
                 ].map((app, idx) => (
                   <motion.div
