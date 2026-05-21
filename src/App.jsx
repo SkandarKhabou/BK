@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Mail, 
-  Globe, 
-  Briefcase, 
-  GraduationCap, 
-  Palette, 
-  Layers, 
-  Cpu, 
+import {
+  Mail,
+  Globe,
+  Briefcase,
+  GraduationCap,
+  Palette,
+  Layers,
+  Cpu,
   Sparkles,
   ArrowRight,
   ArrowLeft,
@@ -23,28 +23,28 @@ import {
 import { projects } from './data'
 
 const ArtStation = ({ size = 24, className = "" }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
     fill="currentColor"
     className={className}
   >
-    <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/>
+    <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" />
   </svg>
 )
 
 const LinkedIn = ({ size = 24, className = "" }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
     fill="currentColor"
     className={className}
   >
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 )
 
@@ -55,9 +55,9 @@ const SmartImage = ({ src, alt, className, loading = "lazy" }) => {
 
   return (
     <div className={`image-container ${className} ${!isLoaded ? 'skeleton' : ''}`} style={{ position: 'relative', overflow: 'hidden' }}>
-      <img 
-        src={src} 
-        alt={alt} 
+      <img
+        src={src}
+        alt={alt}
         loading={loading}
         decoding="async"
         onLoad={() => setIsLoaded(true)}
@@ -65,8 +65,8 @@ const SmartImage = ({ src, alt, className, loading = "lazy" }) => {
           setIsLoaded(true);
           setError(true);
         }}
-        style={{ 
-          opacity: isLoaded ? 1 : 0, 
+        style={{
+          opacity: isLoaded ? 1 : 0,
           transition: 'opacity 0.5s ease-in-out',
           width: '100%',
           height: '100%',
@@ -99,8 +99,8 @@ const ContactDropdown = () => {
 
   return (
     <div className="dropdown-container" ref={dropdownRef}>
-      <button 
-        className="primary-btn" 
+      <button
+        className="primary-btn"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -110,18 +110,18 @@ const ContactDropdown = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             className="dropdown-menu"
           >
             <a href="mailto:badiis.khabou@gmail.com" className="dropdown-item">
-              <Mail size={18} /> 
+              <Mail size={18} />
               <span>badiis.khabou@gmail.com</span>
             </a>
             <a href="tel:+14373289908" className="dropdown-item">
-              <Phone size={18} /> 
+              <Phone size={18} />
               <span>+1 (437) 328-9908</span>
             </a>
           </motion.div>
@@ -142,15 +142,15 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 100, damping: 20 } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 20 }
   }
 }
 
 const SkillPill = React.memo(({ children }) => (
-  <motion.div 
+  <motion.div
     variants={itemVariants}
     whileHover={{ scale: 1.05 }}
     className="pill-badge"
@@ -191,12 +191,12 @@ const ProjectCarousel = ({ onProjectClick }) => {
 
   return (
     <div className="carousel-container">
-      <motion.div 
+      <motion.div
         className="carousel-track"
-        animate={{ 
+        animate={{
           x: ["0%", "-33.33%"],
         }}
-        transition={{ 
+        transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
@@ -206,14 +206,14 @@ const ProjectCarousel = ({ onProjectClick }) => {
         }}
       >
         {duplicatedProjects.map((project, index) => (
-          <div 
-            key={`${project.title}-${index}`} 
+          <div
+            key={`${project.title}-${index}`}
             className="project-card"
             onClick={() => onProjectClick(project)}
           >
-            <SmartImage 
-              src={project.thumbnail} 
-              alt={project.title} 
+            <SmartImage
+              src={project.thumbnail}
+              alt={project.title}
               className="carousel-img"
             />
             <div className="project-card-info" style={{ display: 'flex', flexDirection: 'column' }}>
@@ -240,24 +240,24 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
   }, [project]);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="project-detail"
     >
       {/* Side Navigation Buttons */}
-      <button 
-        onClick={onPrev} 
-        className="nav-side-btn left" 
+      <button
+        onClick={onPrev}
+        className="nav-side-btn left"
         aria-label="Previous Project"
       >
         <ChevronLeft size={32} />
       </button>
-      
-      <button 
-        onClick={onNext} 
-        className="nav-side-btn right" 
+
+      <button
+        onClick={onNext}
+        className="nav-side-btn right"
         aria-label="Next Project"
       >
         <ChevronRight size={32} />
@@ -268,7 +268,7 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
           <button onClick={onBack} className="back-btn" aria-label="Back to Portfolio">
             <ArrowLeft size={20} /> Back to Portfolio
           </button>
-          
+
           <div className="detail-controls">
             <button onClick={onPrev} className="nav-arrow-btn" aria-label="Previous Project">
               <ChevronLeft size={24} />
@@ -280,7 +280,7 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
         </div>
 
         <div className="project-detail-content">
-          <motion.div 
+          <motion.div
             key={project.title}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -290,9 +290,9 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
             <h1 className="gradient-text">{project.title}</h1>
             <p className="project-desc-large">{project.description}</p>
             <div className="project-actions">
-              <a 
-                href={project.link} 
-                target="_blank" 
+              <a
+                href={project.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="primary-btn"
               >
@@ -304,9 +304,9 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
           <div className="project-media-gallery">
             {project.media && project.media.map((url, idx) => {
               const isVideo = url.includes('video_clips') || url.includes('embed.html');
-              
+
               return (
-                <motion.div 
+                <motion.div
                   key={`${project.title}-media-${idx}`}
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -315,19 +315,19 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
                   className={`media-item ${isVideo ? 'video-container' : ''}`}
                 >
                   {isVideo ? (
-                    <iframe 
-                      src={url} 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture" 
+                    <iframe
+                      src={url}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
                       allowFullScreen
                       className="project-iframe"
                       title={`${project.title} Presentation Video ${idx}`}
                       loading="lazy"
                     ></iframe>
                   ) : (
-                    <SmartImage 
-                      src={url} 
-                      alt={`${project.title} high-res render ${idx}`} 
+                    <SmartImage
+                      src={url}
+                      alt={`${project.title} high-res render ${idx}`}
                     />
                   )}
                 </motion.div>
@@ -384,10 +384,10 @@ export default function App() {
 
       <AnimatePresence mode="wait">
         {selectedProject && (
-          <ProjectDetail 
+          <ProjectDetail
             key="project-detail"
-            project={selectedProject} 
-            onBack={() => setSelectedProject(null)} 
+            project={selectedProject}
+            onBack={() => setSelectedProject(null)}
             onNext={handleNextProject}
             onPrev={handlePrevProject}
           />
@@ -395,22 +395,22 @@ export default function App() {
       </AnimatePresence>
 
       <div style={{ display: selectedProject ? 'none' : 'block' }}>
-        <motion.nav 
+        <motion.nav
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="navbar container"
         >
           <div className="logo" onClick={() => setSelectedProject(null)}>
-            BK<span>.</span>
+            Badis Khabou<span>.</span>
           </div>
-          
+
           <div className="nav-controls">
             <div className="status-badge">
               <div className="pulse-dot" />
               Available for Hire
             </div>
-            <button 
-              className="theme-toggle" 
+            <button
+              className="theme-toggle"
               onClick={toggleTheme}
               aria-label="Toggle Theme"
             >
@@ -421,7 +421,7 @@ export default function App() {
 
         <main className="container">
           <section className="hero-section">
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -438,7 +438,7 @@ export default function App() {
                 <motion.p variants={itemVariants} className="hero-desc">
                   Professional 3D Artist and Game Producer with 5+ years of experience delivering high-performance assets for real-time engines.
                 </motion.p>
-                
+
                 <motion.div variants={itemVariants} className="action-group">
                   <ContactDropdown />
                   <a href="https://www.linkedin.com/in/badis-khabou" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="LinkedIn">
@@ -453,9 +453,9 @@ export default function App() {
               <motion.div variants={itemVariants} className="hero-image-container">
                 <div className="hero-image-wrapper">
                   <div className="hero-image-bg" />
-                  <img 
-                    src="/photo.jpg" 
-                    alt="Badis Khabou Professional Photo" 
+                  <img
+                    src="/photo.jpg"
+                    alt="Badis Khabou Professional Photo"
                     className="hero-image"
                     loading="eager"
                     decoding="async"
@@ -470,7 +470,7 @@ export default function App() {
           </section>
 
           <section id="deployed-apps">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
@@ -480,14 +480,105 @@ export default function App() {
                 <Globe className="accent-emerald-text" size={32} />
                 TOP 10 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(200+ apps)</span>
               </h2>
+              {/* ── Featured App: Swords Makers (5M+) ── */}
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+                <motion.div
+                  variants={itemVariants}
+                  className="glass-card"
+                  style={{
+                    padding: '0',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    border: '2px solid #fbbf24',
+                    boxShadow: '0 0 40px rgba(251, 191, 36, 0.45)',
+                    width: '260px',
+                    flexShrink: 0
+                  }}
+                  initial="initial"
+                  whileHover="hover"
+                >
+                  <a href="https://play.google.com/store/apps/details?id=com.stolenpad.swordsmakers" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    {/* Top badge */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '0.75rem',
+                      right: '0.75rem',
+                      background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+                      color: '#000',
+                      fontWeight: '800',
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      zIndex: 10,
+                      boxShadow: '0 4px 12px rgba(251, 191, 36, 0.5)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.3rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px'
+                    }}>
+                      <Sparkles size={14} /> Reached Top 5 in US
+                    </div>
+
+                    {/* App image */}
+                    <div style={{ width: '100%', aspectRatio: '1 / 1', position: 'relative' }}>
+                      <SmartImage src="/swordsmakers.png" alt="Swords Makers" style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
+                    </div>
+
+                    {/* Hover overlay */}
+                    <motion.div
+                      variants={{ initial: { opacity: 0, y: 10 }, hover: { opacity: 1, y: 0 } }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: '2rem 1.5rem 1.5rem',
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        color: '#fff'
+                      }}
+                    >
+                      <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)', color: '#fbbf24' }}>Swords Makers</h3>
+                      <ExternalLink size={20} color="#fbbf24" />
+                    </motion.div>
+                  </a>
+
+                  {/* 5M+ label below the card image, inside the card */}
+                  <div style={{
+                    background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                    borderTop: '2px solid #fbbf24',
+                    padding: '0.85rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <Sparkles size={18} color="#000" />
+                    <span style={{
+                      fontSize: '1.6rem',
+                      fontWeight: '900',
+                      color: '#000',
+                      letterSpacing: '-0.02em',
+                      fontFamily: "'Outfit', sans-serif"
+                    }}>5M+</span>
+                    <span style={{
+                      fontSize: '0.85rem',
+                      fontWeight: '700',
+                      color: 'rgba(0,0,0,0.7)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}>Downloads</span>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* ── Remaining 9 Apps ── */}
               <div className="grid-5">
                 {[
-                  {
-                    title: "Swords Makers",
-                    image: "/swordsmakers.png",
-                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.swordsmakers",
-                    downloads: "5M+"
-                  },
                   {
                     title: "Anime Clicker : IO",
                     image: "/animeclicker.png",
@@ -525,6 +616,12 @@ export default function App() {
                     downloads: "500+"
                   },
                   {
+                    title: "Survivor Hunter",
+                    image: "https://cdnb.artstation.com/p/assets/covers/images/083/030/925/smaller_square/badis-khabou-badis-khabou-badis-khabou-10.jpg?1734559501",
+                    link: "https://play.google.com/store/apps/details?id=com.stolenpadstudio.survivorhunter",
+                    downloads: "1K+"
+                  },
+                  {
                     title: "Barrel Maker",
                     image: "/barrelmaker.png",
                     link: "https://play.google.com/store/apps/details?id=com.stolenpad.barrelmaker",
@@ -535,90 +632,53 @@ export default function App() {
                     image: "/shootersorter.png",
                     link: "https://play.google.com/store/apps/details?id=com.Stolenpad.ShooterSorter",
                     downloads: "100+"
-                  },
-                  {
-                    title: "Footing Girl 3D",
-                    image: "/footinggirl3d.png",
-                    link: "https://play.google.com/store/apps/details?id=com.StolenPad.FootingGirl3D",
-                    downloads: "5+"
                   }
                 ].map((app, idx) => (
-                  <motion.div 
-                    key={idx} 
-                    variants={itemVariants} 
-                    className="glass-card" 
-                    style={{ 
-                      padding: '0', 
-                      overflow: 'hidden', 
-                      position: 'relative',
-                      ...(idx === 0 ? { border: '2px solid #fbbf24', boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)' } : {})
-                    }}
+                  <motion.div
+                    key={idx}
+                    variants={itemVariants}
+                    className="glass-card"
+                    style={{ padding: '0', overflow: 'hidden', position: 'relative' }}
                     initial="initial"
                     whileHover="hover"
                   >
                     <a href={app.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
                       <div style={{ width: '100%', aspectRatio: '1 / 1', position: 'relative' }}>
-                        {idx === 0 && (
-                          <div style={{
-                            position: 'absolute',
-                            top: '0.75rem',
-                            right: '0.75rem',
-                            background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
-                            color: '#000',
-                            fontWeight: '800',
-                            padding: '0.4rem 0.8rem',
-                            borderRadius: '999px',
-                            fontSize: '0.75rem',
-                            zIndex: 10,
-                            boxShadow: '0 4px 12px rgba(251, 191, 36, 0.5)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.3rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.5px'
-                          }}>
-                            <Sparkles size={14} /> Reached Top 5 in US
-                          </div>
-                        )}
-                        <SmartImage 
-                          src={app.image} 
-                          alt={app.title} 
+                        <SmartImage
+                          src={app.image}
+                          alt={app.title}
                           style={{ height: '100%', width: '100%', objectFit: 'cover' }}
                         />
                       </div>
-                      <motion.div 
-                        variants={{
-                          initial: { opacity: 0, y: 10 },
-                          hover: { opacity: 1, y: 0 }
-                        }}
+                      <motion.div
+                        variants={{ initial: { opacity: 0, y: 10 }, hover: { opacity: 1, y: 0 } }}
                         transition={{ duration: 0.3 }}
-                        style={{ 
-                          position: 'absolute', 
-                          bottom: 0, 
-                          left: 0, 
-                          right: 0, 
-                          padding: '2rem 1.5rem 1.5rem', 
-                          background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', 
-                          display: 'flex', 
-                          justifyContent: 'space-between', 
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          padding: '2rem 1.5rem 1.5rem',
+                          background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                          display: 'flex',
+                          justifyContent: 'space-between',
                           alignItems: 'center',
                           color: '#fff'
                         }}
                       >
-                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)', color: idx === 0 ? '#fbbf24' : '#fff' }}>{app.title}</h3>
+                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{app.title}</h3>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <span style={{ 
-                            fontSize: '0.9rem', 
-                            fontWeight: 'bold', 
-                            background: idx === 0 ? 'rgba(251, 191, 36, 0.2)' : 'rgba(255,255,255,0.2)', 
-                            color: idx === 0 ? '#fbbf24' : '#fff',
-                            padding: '0.2rem 0.5rem', 
-                            borderRadius: '12px',
-                            border: idx === 0 ? '1px solid rgba(251, 191, 36, 0.5)' : 'none'
+                          <span style={{
+                            fontSize: '0.9rem',
+                            fontWeight: 'bold',
+                            background: 'rgba(255,255,255,0.2)',
+                            color: '#fff',
+                            padding: '0.2rem 0.5rem',
+                            borderRadius: '12px'
                           }}>
                             {app.downloads}
                           </span>
-                          <ExternalLink size={20} color={idx === 0 ? "#fbbf24" : "#38bdf8"} />
+                          <ExternalLink size={20} color="#38bdf8" />
                         </div>
                       </motion.div>
                     </a>
@@ -628,8 +688,184 @@ export default function App() {
             </motion.div>
           </section>
 
+          {/* ── Publishers Section ── */}
+          <section id="publishers" style={{ paddingTop: '0', paddingBottom: '5rem' }}>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={containerVariants}
+            >
+              <motion.p variants={itemVariants} style={{
+                textAlign: 'center',
+                fontSize: '0.85rem',
+                fontWeight: '700',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--text-secondary)',
+                marginBottom: '2rem'
+              }}>
+                Publishers we worked with
+              </motion.p>
+
+              <motion.div variants={itemVariants} style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '1.25rem'
+              }}>
+                {[
+                  { name: 'Rollic Games', url: 'https://rollicgames.com' },
+                  { name: 'Tapnation', url: 'https://tapnation.io' },
+                  { name: 'Homa Games', url: 'https://homagames.com' },
+                  { name: 'Voodoo', url: 'https://voodoo.io' },
+                ].map((pub) => (
+                  <a
+                    key={pub.name}
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.06, borderColor: 'var(--accent-blue)', color: 'var(--accent-blue)' }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      style={{
+                        padding: '0.75rem 2rem',
+                        background: 'var(--card-bg)',
+                        border: '1px solid var(--card-border)',
+                        borderRadius: '999px',
+                        fontSize: '1.05rem',
+                        fontWeight: '700',
+                        color: 'var(--text-primary)',
+                        fontFamily: "'Outfit', sans-serif",
+                        letterSpacing: '-0.01em',
+                        backdropFilter: 'blur(10px)',
+                        WebkitBackdropFilter: 'blur(10px)',
+                        boxShadow: 'var(--card-shadow)',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      {pub.name}
+                    </motion.div>
+                  </a>
+                ))}
+              </motion.div>
+            </motion.div>
+          </section>
+
+          {/* ── Press & Articles Section ── */}
+          <section id="press" style={{ paddingTop: '0', paddingBottom: '5rem' }}>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={containerVariants}
+            >
+              <motion.p variants={itemVariants} style={{
+                textAlign: 'center',
+                fontSize: '0.85rem',
+                fontWeight: '700',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--text-secondary)',
+                marginBottom: '2rem'
+              }}>
+                Featured in the press
+              </motion.p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
+                {[
+                  {
+                    source: 'Games Industry Africa',
+                    date: 'June 22, 2022',
+                    title: 'Stolen Pad Studios notches Mobile Milestone',
+                    excerpt: '"Our journey on Mobile Gaming just started! 4M downloads and made it to the US top charts."',
+                    url: 'https://gamesindustryafrica.com/2022/06/22/stolen-pad-studios-notches-mobile-milestone/'
+                  },
+                  {
+                    source: 'Games Industry Africa',
+                    date: 'February 10, 2023',
+                    title: "Nuked Cockroach Scores Second Mobile Success",
+                    excerpt: "Fighter's Run released in partnership with global publisher TapNation, following Swords Maker's nomination at the 2022 GIAA Team of the Year.",
+                    url: 'https://gamesindustryafrica.com/2023/02/10/nuked-cockroach-scores-second-mobile-success/'
+                  }
+                ].map((article, idx) => (
+                  <motion.a
+                    key={idx}
+                    variants={itemVariants}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -6, borderColor: 'var(--accent-blue)' }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    style={{
+                      display: 'block',
+                      textDecoration: 'none',
+                      background: 'var(--card-bg)',
+                      border: '1px solid var(--card-border)',
+                      borderRadius: '1.5rem',
+                      padding: '2rem',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      boxShadow: 'var(--card-shadow)',
+                      color: 'inherit'
+                    }}
+                  >
+                    {/* Source + date */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                      <span style={{
+                        fontSize: '0.75rem',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        color: 'var(--accent-blue)'
+                      }}>
+                        {article.source}
+                      </span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>
+                        {article.date}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 style={{
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '1.15rem',
+                      fontWeight: '800',
+                      color: 'var(--text-primary)',
+                      marginBottom: '0.85rem',
+                      lineHeight: '1.3',
+                      letterSpacing: '-0.01em'
+                    }}>
+                      {article.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    <p style={{
+                      fontSize: '0.95rem',
+                      color: 'var(--text-secondary)',
+                      lineHeight: '1.6',
+                      marginBottom: '1.25rem',
+                      fontStyle: 'italic'
+                    }}>
+                      {article.excerpt}
+                    </p>
+
+                    {/* Read more */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent-blue)', fontWeight: '700', fontSize: '0.9rem' }}>
+                      Read article <ExternalLink size={14} />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+
           <section id="work">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
@@ -644,7 +880,7 @@ export default function App() {
           </section>
 
           <section id="expertise">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -698,7 +934,7 @@ export default function App() {
           </section>
 
           <section id="experience">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -709,7 +945,7 @@ export default function App() {
                 Experience
               </h2>
               <div className="list-container">
-                <ExperienceCard 
+                <ExperienceCard
                   icon={Briefcase}
                   role="Game Producer"
                   company="Polysmart SA — Tunis"
@@ -720,7 +956,7 @@ export default function App() {
                     "Ensured alignment between art direction, technical constraints, and production goals."
                   ]}
                 />
-                <ExperienceCard 
+                <ExperienceCard
                   icon={Palette}
                   role="3D Artist"
                   company="Polysmart SA — Tunis"
@@ -731,7 +967,7 @@ export default function App() {
                     "Performed retopology and optimization for real-time performance."
                   ]}
                 />
-                <ExperienceCard 
+                <ExperienceCard
                   icon={Layers}
                   role="3D Artist"
                   company="The Full Room — Tunis"
@@ -741,7 +977,7 @@ export default function App() {
                     "Focused on strong shape language and realistic proportions."
                   ]}
                 />
-                <ExperienceCard 
+                <ExperienceCard
                   icon={Cpu}
                   role="3D Artist"
                   company="Galactech Studio — Tunis"
@@ -756,7 +992,7 @@ export default function App() {
           </section>
 
           <section id="education">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -809,7 +1045,7 @@ export default function App() {
             </motion.div>
           </section>
 
-          <motion.footer 
+          <motion.footer
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
