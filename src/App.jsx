@@ -343,7 +343,7 @@ const ProjectDetail = ({ project, onBack, onNext, onPrev }) => {
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark'
+    return localStorage.getItem('theme') || 'light'
   })
 
   useEffect(() => {
