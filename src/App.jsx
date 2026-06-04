@@ -478,7 +478,7 @@ export default function App() {
             >
               <h2 className="section-title">
                 <Globe className="accent-emerald-text" size={32} />
-                TOP 11 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(200+ apps)</span>
+                TOP 7 deployed apps <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginLeft: '1rem', fontWeight: 'normal' }}>(+100 apps)</span>
               </h2>
               {/* ── Featured App: Swords Makers (5M+) ── */}
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -577,7 +577,7 @@ export default function App() {
               </div>
 
               {/* ── Remaining 9 Apps ── */}
-              <div className="grid-5">
+              <div className="grid-2" style={{ maxWidth: '600px', margin: '0 auto 2rem auto', gap: '2rem' }}>
                 {[
                   {
                     title: "Anime Clicker : IO",
@@ -586,29 +586,66 @@ export default function App() {
                     downloads: "5K+"
                   },
                   {
-                    title: "Sponge Rush : 3D",
-                    image: "/spongerush3d.png",
-                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.spongerush3d&hl=en_US",
-                    downloads: "1K+"
-                  },
-                  {
-                    title: "Sponge Rush",
-                    image: "/spongerush.png",
-                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.spongerush&hl=en_US",
-                    downloads: "1K+"
-                  },
-                  {
-                    title: "Bomber Golfer",
-                    image: "/bombergolfer.png",
-                    link: "https://play.google.com/store/apps/details?id=com.stolenpad.bombergolfer&hl=en_US",
-                    downloads: "1K+"
-                  },
-                  {
                     title: "City Builder",
                     image: "/citybuilder.png",
                     link: "https://play.google.com/store/apps/details?id=com.stolenpad.citybuilder",
                     downloads: "1K+"
-                  },
+                  }
+                ].map((app, idx) => (
+                  <motion.div
+                    key={`top-${idx}`}
+                    variants={itemVariants}
+                    className="glass-card"
+                    style={{ padding: '0', overflow: 'hidden', position: 'relative' }}
+                    initial="initial"
+                    whileHover="hover"
+                  >
+                    <a href={app.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
+                      <div style={{ width: '100%', aspectRatio: '1 / 1', position: 'relative' }}>
+                        <SmartImage
+                          src={app.image}
+                          alt={app.title}
+                          style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                        />
+                      </div>
+                      <motion.div
+                        variants={{ initial: { opacity: 0, y: 10 }, hover: { opacity: 1, y: 0 } }}
+                        transition={{ duration: 0.3 }}
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          padding: '2rem 1.5rem 1.5rem',
+                          background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          color: '#fff'
+                        }}
+                      >
+                        <h3 style={{ margin: 0, fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{app.title}</h3>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span style={{
+                            fontSize: '0.9rem',
+                            fontWeight: 'bold',
+                            background: 'rgba(255,255,255,0.2)',
+                            color: '#fff',
+                            padding: '0.2rem 0.5rem',
+                            borderRadius: '12px'
+                          }}>
+                            {app.downloads}
+                          </span>
+                          <ExternalLink size={20} color="#38bdf8" />
+                        </div>
+                      </motion.div>
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="grid-5">
+                {[
                   {
                     title: "Battle Blacksmith",
                     image: "/battleblacksmith.png",
@@ -617,7 +654,7 @@ export default function App() {
                   },
                   {
                     title: "Survivor Hunter",
-                    image: "https://cdnb.artstation.com/p/assets/covers/images/083/030/925/smaller_square/badis-khabou-badis-khabou-badis-khabou-10.jpg?1734559501",
+                    image: "/survivorhunter.png",
                     link: "https://play.google.com/store/apps/details?id=com.stolenpadstudio.survivorhunter",
                     downloads: "1K+"
                   },
@@ -954,7 +991,7 @@ export default function App() {
                 <ExperienceCard
                   icon={Briefcase}
                   role="Game Producer"
-                  company="Polysmart SA — Tunis"
+                  company="Polysmart SA (Stolen Pad) — Tunis"
                   period="Nov 2024 – Apr 2026"
                   desc={[
                     "Supervised the full game development lifecycle for mobile titles like Wool IO 3D, Dart Heroes, and Herolizer Saga.",
@@ -965,7 +1002,7 @@ export default function App() {
                 <ExperienceCard
                   icon={Palette}
                   role="3D Artist"
-                  company="Polysmart SA — Tunis"
+                  company="Polysmart SA (Stolen Pad) — Tunis"
                   period="Jul 2021 – Feb 2024"
                   desc={[
                     "Created game-ready organic and hard-surface 3D assets including props, environments, and characters.",
